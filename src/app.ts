@@ -49,3 +49,36 @@ let pessoaTest4: {nome: string, idade: number, profissao: string} = {
     profissao: "padeiro"
 }
 console.log(pessoaTest4);
+
+
+// Desafio 3:
+let botaoAtualizarTest = document.getElementById('atualizar-saldo');
+let botaoLimparTest = document.getElementById('limpar-saldo');
+let somaTest = document.getElementById('soma') as HTMLInputElement;
+let campoSaldoTest = document.getElementById('campo-saldo');
+
+let saldoTotalTest = 0;
+
+
+function somarAoSaldoTest(soma: number): void {
+    if (campoSaldoTest) {
+        saldoTotalTest += soma;
+        campoSaldoTest.innerHTML = saldoTotalTest.toString();
+    }
+}
+
+function limparSaldoTest() {
+    if (campoSaldoTest) {
+        campoSaldoTest.innerHTML = '';
+    }
+}
+
+botaoAtualizarTest?.addEventListener('click', function () {
+    if (somaTest) {
+        somarAoSaldoTest(Number(somaTest.value));
+    }
+});
+
+botaoLimparTest?.addEventListener('click', function () {
+    limparSaldoTest();
+});
